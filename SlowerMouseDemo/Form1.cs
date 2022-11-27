@@ -17,6 +17,7 @@ namespace SlowerMouseDemo
     {
         //TODO: Clean up and make better(get good)
         //TODO: Add ability to change % of slowerspeed from topspeed
+        //TODO: Add ability to go in tray
         //TODO: Maybe add ability to change activation key
         
         
