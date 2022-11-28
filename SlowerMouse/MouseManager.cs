@@ -20,11 +20,11 @@ namespace SlowerMouse
         private UInt32 normalSpeed;
         private UInt32 slowerSpeed;
 
-        public float precentage { private get; set; }
+        public float percentage { private get; set; }
 
-        public MouseManager(float precentage)
+        public MouseManager(int percentage)
         {
-            this.precentage = precentage / 100f;
+            this.percentage = percentage / 100f;
 
             GetMouseSpeeds();
         }
@@ -36,17 +36,39 @@ namespace SlowerMouse
             SystemParametersInfo(SPI_GETMOUSESPEED, 0, new IntPtr(&speed), 0);
 
             normalSpeed = (UInt32)speed;
-            slowerSpeed = (UInt32)(speed * precentage);
+            slowerSpeed = (UInt32)(speed * percentage);
         }
 
-        public void SlowDown()
+        private bool IsKeyValid(Keys key)
         {
-            SystemParametersInfo(SPI_SETMOUSESPEED, 0, slowerSpeed, 0);
+            if (key == Keys.LShiftKey)
+            {
+                return true;
+            }
+
+            return false;
         }
 
-        public void SpeedUp()
+        public bool SlowDown(Keys key)
         {
-            SystemParametersInfo(SPI_SETMOUSESPEED, 0, normalSpeed, 0);
+            if (IsKeyValid(key))
+            {
+                SystemParametersInfo(SPI_SETMOUSESPEED, 0, slowerSpeed, 0);
+
+                return true;
+            }
+            return false;
+        }
+
+        public bool SpeedUp(Keys key)
+        {
+            if (IsKeyValid(key))
+            {
+                SystemParametersInfo(SPI_SETMOUSESPEED, 0, normalSpeed, 0);
+
+                return true;
+            }
+            return false;
         }
     }
 }
