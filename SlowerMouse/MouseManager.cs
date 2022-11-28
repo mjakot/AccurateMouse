@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SlowerMouse
 {
-    internal class MouseSlowDown
+    internal class MouseManager
     {
         [DllImport("User32.dll")]
         static extern Boolean SystemParametersInfo(UInt32 uiAction, UInt32 uiParam, UInt32 pvParam, UInt32 fWinIni);
@@ -22,7 +22,7 @@ namespace SlowerMouse
 
         public float precentage { private get; set; }
 
-        public MouseSlowDown(float precentage)
+        public MouseManager(float precentage)
         {
             this.precentage = precentage / 100f;
 
