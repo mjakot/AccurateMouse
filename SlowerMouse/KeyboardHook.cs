@@ -42,6 +42,11 @@ namespace SlowerMouse
             hookID = SetHook(hookHandler);
         }
 
+        public void UnInstall()
+        {
+            UnhookWindowsHookEx(hookID);
+        }
+
         private IntPtr SetHook(KeyboardHookHandler proc)
         {
             using (ProcessModule module = Process.GetCurrentProcess().MainModule)
