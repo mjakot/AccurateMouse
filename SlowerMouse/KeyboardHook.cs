@@ -22,7 +22,7 @@ namespace SlowerMouse
         private static extern IntPtr GetModuleHandle(string lpModuleName);
 
         private delegate IntPtr KeyboardHookHandler(int nCode, IntPtr wParam, IntPtr lParam);
-        public delegate void KeyboardHookCallback(Keys key);
+        public delegate void KeyboardHookCallback();
 
         private KeyboardHookHandler hookHandler;
 
@@ -63,12 +63,23 @@ namespace SlowerMouse
 
                 if ((iwParam == WM_KEYDOWN || iwParam == WM_SYSKEYDOWN))
                 {
-                    KeyDown?.Invoke((Keys)Marshal.ReadInt32(lParam));
+                    Keys key = ((Keys)Marshal.ReadInt32(lParam));
+
+                    if (key == Keys.LShiftKey)
+                    {
+                        KeyDown?.Invoke();
+                    }
                 }
 
                 if ((iwParam == WM_KEYUP || iwParam == WM_SYSKEYUP))
                 {
-                    KeyUp?.Invoke((Keys)Marshal.ReadInt32(lParam));
+                    Keys key = (Keys)Marshal.ReadInt32(lParam);
+
+                    if (key == Keys.LShiftKey)
+                    {
+
+                        KeyUp?.Invoke();
+                    }
                 }
             }
 

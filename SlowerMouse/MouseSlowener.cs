@@ -11,28 +11,44 @@ namespace SlowerMouse
         KeyboardHook hook;
         MouseManager manager;
 
-        public MouseSlowener(int percentage)
+        public void Start(int percentage)
         {
             hook = new KeyboardHook();
-            manager = new MouseManager(percentage);
-        }
+            manager = new MouseManager();
 
-        private void SetUp()
-        {
-            hook.KeyDown += OnKeyDown;
-            hook.KeyUp += OnKeyUp;
+            manager.SetMouseSpeeds(percentage);
+
+            hook.KeyDown += Hook_KeyDown;
+            hook.KeyUp += Hook_KeyUp;
 
             hook.Install();
         }
 
-        private void OnKeyUp(Keys key)
+        public void Stop()
         {
-            manager.SpeedUp(key);
+            hook.UnInstall();
+
+            hook.KeyDown -= Hook_KeyDown;
+            hook.KeyUp -= Hook_KeyUp;
         }
 
-        private void OnKeyDown(Keys key)
+        public void Update(int percentage)
         {
-            manager.SlowDown(key);
+            hook.UnInstall();
+
+            manager.SetMouseSpeeds(percentage);
+
+            hook.Install();
+        }
+
+        private void Hook_KeyDown()
+        {
+            manager.SlowDown();
+        }
+
+        private void Hook_KeyUp()
+        {
+            manager.SpeedUp();
         }
     }
 }
