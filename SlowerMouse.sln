@@ -3,9 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlowerMouse", "SlowerMouse\SlowerMouse.csproj", "{77F5813C-1E1A-4A54-BF57-ADA49EAA452F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SlowerMouse", "SlowerMouse\SlowerMouse.csproj", "{77F5813C-1E1A-4A54-BF57-ADA49EAA452F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SlowerMouseDemo", "SlowerMouseDemo\SlowerMouseDemo.csproj", "{FF10D50E-6E1B-42BD-BEC1-C8CF1F2C9CC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Media", "Media", "{41C57B37-3B40-40FE-84A2-15654715CB92}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Users\arsmy\OneDrive\Bilder\Saved Pictures\ICOS\cursor.ico = ..\..\..\..\Users\arsmy\OneDrive\Bilder\Saved Pictures\ICOS\cursor.ico
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
