@@ -6,6 +6,7 @@ namespace SlowerMouse
     public partial class Form1 : Form
     {
         MouseSlowener slowener;
+        TrayManager manager;
 
         int percentage;
 
@@ -14,6 +15,7 @@ namespace SlowerMouse
             InitializeComponent();
 
             slowener = new MouseSlowener();
+            manager = new TrayManager();
 
             percentage = (int)PercentageUpDown.Value;
         }
@@ -39,23 +41,18 @@ namespace SlowerMouse
         {
             if (this.WindowState == FormWindowState.Minimized)
             {
-                Hide();
-                NotifyIcon.Visible = true;
+                manager.GoToTray();
             }
         }
 
         private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Show();
-            this.WindowState = FormWindowState.Normal;
-            NotifyIcon.Visible = false;
+            manager.Maximize();
         }
 
         private void showToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Show();
-            this.WindowState = FormWindowState.Normal;
-            NotifyIcon.Visible = false;
+            manager.Maximize();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,14 +62,12 @@ namespace SlowerMouse
 
         private void GoTrayButton_Click(object sender, EventArgs e)
         {
-            Hide();
-            NotifyIcon.Visible = true;
+            manager.GoToTray();
         }
 
         private void GoToTrayButton_Click(object sender, EventArgs e)
         {
-            Hide();
-            NotifyIcon.Visible = true;
+            manager.GoToTray();
         }
     }
 }

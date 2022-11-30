@@ -123,10 +123,10 @@
         #endregion
 
         private NumericUpDown PercentageUpDown;
-        private NotifyIcon NotifyIcon;
         private ContextMenuStrip TrayMenuStrip;
         private ToolStripMenuItem showToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
         private Button GoToTrayButton;
+        protected NotifyIcon NotifyIcon;
     }
 }
