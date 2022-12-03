@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace SlowerMouse
 {
@@ -32,6 +33,48 @@ namespace SlowerMouse
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             slowener.Stop();
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                GoToTray();
+            }
+        }
+
+        private void NotifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Maximize();
+        }
+
+        private void showToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Maximize();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void GoToTrayButton_Click(object sender, EventArgs e)
+        {
+            GoToTray();
+        }
+
+        private void GoToTray()
+        {
+            Hide();
+            WindowState = FormWindowState.Minimized;
+            NotifyIcon.Visible = true;
+        }
+
+        private void Maximize()
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+            NotifyIcon.Visible = false;
         }
     }
 }
