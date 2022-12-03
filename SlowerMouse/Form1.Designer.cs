@@ -76,19 +76,19 @@
             this.showToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.TrayMenuStrip.Name = "contextMenuStrip1";
-            this.TrayMenuStrip.Size = new System.Drawing.Size(104, 48);
+            this.TrayMenuStrip.Size = new System.Drawing.Size(181, 70);
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.showToolStripMenuItem.Text = "Show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -127,6 +127,6 @@
         private ToolStripMenuItem showToolStripMenuItem;
         private ToolStripMenuItem exitToolStripMenuItem;
         private Button GoToTrayButton;
-        protected NotifyIcon NotifyIcon;
+        private NotifyIcon NotifyIcon;
     }
 }
