@@ -7,27 +7,21 @@ namespace SlowerMouse
     {
         MouseSlowener slowener;
 
-        int percentage;
-
         public Form1()
         {
             InitializeComponent();
 
             slowener = new MouseSlowener();
-
-            percentage = (int)PercentageUpDown.Value;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            slowener.Start(percentage);
+            slowener.Start(GetPercentage());
         }
 
         private void PercentageUpDown_ValueChanged(object sender, EventArgs e)
         {
-            percentage = (int)PercentageUpDown.Value;
-
-            slowener.Update(percentage);
+            slowener.Update(GetPercentage());
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -75,6 +69,27 @@ namespace SlowerMouse
             Show();
             WindowState = FormWindowState.Normal;
             NotifyIcon.Visible = false;
+        }
+
+        private void StopButton_Click(object sender, EventArgs e)
+        {
+            switch(slowener.isRunning)
+            {
+                case true:
+                    slowener.Stop();
+                    StopButton.Text = "Start";
+                    break;
+
+                case false:
+                    slowener.Start(GetPercentage());
+                    StopButton.Text = "Stop";
+                    break;
+            }
+        }
+
+        private int GetPercentage()
+        {
+            return (int)PercentageUpDown.Value;
         }
     }
 }

@@ -36,6 +36,8 @@
             this.showToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GoToTrayButton = new System.Windows.Forms.Button();
+            this.PercentageLabel = new System.Windows.Forms.Label();
+            this.StopButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PercentageUpDown)).BeginInit();
             this.TrayMenuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -47,7 +49,12 @@
             0,
             0,
             0});
-            this.PercentageUpDown.Location = new System.Drawing.Point(26, 21);
+            this.PercentageUpDown.Location = new System.Drawing.Point(163, 50);
+            this.PercentageUpDown.Maximum = new decimal(new int[] {
+            90,
+            0,
+            0,
+            0});
             this.PercentageUpDown.Minimum = new decimal(new int[] {
             10,
             0,
@@ -57,7 +64,7 @@
             this.PercentageUpDown.Size = new System.Drawing.Size(43, 23);
             this.PercentageUpDown.TabIndex = 1;
             this.PercentageUpDown.Value = new decimal(new int[] {
-            30,
+            70,
             0,
             0,
             0});
@@ -76,25 +83,25 @@
             this.showToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.TrayMenuStrip.Name = "contextMenuStrip1";
-            this.TrayMenuStrip.Size = new System.Drawing.Size(181, 70);
+            this.TrayMenuStrip.Size = new System.Drawing.Size(104, 48);
             // 
             // showToolStripMenuItem
             // 
             this.showToolStripMenuItem.Name = "showToolStripMenuItem";
-            this.showToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.showToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.showToolStripMenuItem.Text = "Show";
             this.showToolStripMenuItem.Click += new System.EventHandler(this.showToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // GoToTrayButton
             // 
-            this.GoToTrayButton.Location = new System.Drawing.Point(95, 21);
+            this.GoToTrayButton.Location = new System.Drawing.Point(69, 79);
             this.GoToTrayButton.Name = "GoToTrayButton";
             this.GoToTrayButton.Size = new System.Drawing.Size(75, 23);
             this.GoToTrayButton.TabIndex = 2;
@@ -102,11 +109,32 @@
             this.GoToTrayButton.UseVisualStyleBackColor = true;
             this.GoToTrayButton.Click += new System.EventHandler(this.GoToTrayButton_Click);
             // 
+            // PercentageLabel
+            // 
+            this.PercentageLabel.AutoSize = true;
+            this.PercentageLabel.Location = new System.Drawing.Point(86, 52);
+            this.PercentageLabel.Name = "PercentageLabel";
+            this.PercentageLabel.Size = new System.Drawing.Size(71, 15);
+            this.PercentageLabel.TabIndex = 3;
+            this.PercentageLabel.Text = "Slower by %";
+            // 
+            // StopButton
+            // 
+            this.StopButton.Location = new System.Drawing.Point(150, 79);
+            this.StopButton.Name = "StopButton";
+            this.StopButton.Size = new System.Drawing.Size(75, 23);
+            this.StopButton.TabIndex = 4;
+            this.StopButton.Text = "Stop";
+            this.StopButton.UseVisualStyleBackColor = true;
+            this.StopButton.Click += new System.EventHandler(this.StopButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(198, 68);
+            this.ClientSize = new System.Drawing.Size(317, 161);
+            this.Controls.Add(this.StopButton);
+            this.Controls.Add(this.PercentageLabel);
             this.Controls.Add(this.GoToTrayButton);
             this.Controls.Add(this.PercentageUpDown);
             this.Name = "Form1";
@@ -117,6 +145,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PercentageUpDown)).EndInit();
             this.TrayMenuStrip.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -128,5 +157,7 @@
         private ToolStripMenuItem exitToolStripMenuItem;
         private Button GoToTrayButton;
         private NotifyIcon NotifyIcon;
+        private Label PercentageLabel;
+        private Button StopButton;
     }
 }

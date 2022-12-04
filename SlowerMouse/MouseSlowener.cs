@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SlowerMouse
+﻿namespace SlowerMouse
 {
     internal class MouseSlowener
     {
         KeyboardHook hook;
         MouseManager manager;
+
+        public bool isRunning { get; private set; }
 
         public void Start(int percentage)
         {
@@ -22,6 +18,8 @@ namespace SlowerMouse
             hook.KeyUp += Hook_KeyUp;
 
             hook.Install();
+
+            isRunning = true;
         }
 
         public void Stop()
@@ -30,6 +28,8 @@ namespace SlowerMouse
 
             hook.KeyDown -= Hook_KeyDown;
             hook.KeyUp -= Hook_KeyUp;
+
+            isRunning = false;
         }
 
         public void Update(int percentage)

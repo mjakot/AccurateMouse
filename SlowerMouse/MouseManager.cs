@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.InteropServices;
 
 namespace SlowerMouse
 {
@@ -27,7 +22,7 @@ namespace SlowerMouse
             SystemParametersInfo(SPI_GETMOUSESPEED, 0, new IntPtr(&speed), 0);
 
             normalSpeed = (UInt32)speed;
-            slowerSpeed = (UInt32)(speed * percentage) / 100;
+            slowerSpeed = (UInt32)(speed - (speed * percentage) / 100);
         }
 
         public void SlowDown()
